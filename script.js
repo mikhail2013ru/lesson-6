@@ -1,71 +1,58 @@
 'use strict';
 
-// function changeTires(snowTires) {
-//   snowTires--;
-//   console.log(snowTires);
+// function isNumber() {
+//   let askNumber = prompt('"Угадай число от 1 до 100"');
 
-//   if(snowTires > 0) {    
-//     changeTires(snowTires);
-//   }
+//   return function Random() {
+//     if (askNumber === isNaN(askNumber)) {
+//       return console.log('Не число');
+//     }
+  
+//     if (parseFloat(askNumber) === 30) {
+//       return console.log(askNumber);
+//     }
+//     isNumber();
+//   }  
 // }
 
-// changeTires(4);
+// let a = isNumber();
+// a();
+//console.log(a);
 
-let askNumber = +prompt('"Угадай число от 1 до 100"');
-
-function getNumber(count) {
-  //count--;
-  console.log(count);
-
-  function number() {
-    getNumber(askNumber);
-  }
-
-  if(count > askNumber) {
-    alert('"Загаданное число меньше"');    
-    //getNumber(count);
-  }
-  if(count < askNumber) {
-    alert('"Загаданное число больше"');    
-    //getNumber(count);
-  }
-  if(count === isNaN(askNumber)) {
-    alert('"Введи число!"');    
-    //getNumber(count);
-  }
-
-  if(count === isNaN(askNumber)) {
-    alert('"Введи число!"');    
-    //getNumber(count);
-  }
-
-  number();
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
 
-// let a = 60;
+function isNum(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
 
-// function one() {
-//   let x = 10;
+const randomNumber = getRandomInt(100);
 
-//   function two(y) {
-//     function tree() {
-//       return x * y;
-//     }
-//     console.dir(tree); 
-//     return x + y + tree();
-//   }  
+function game(){
+  const num = prompt('Угадай число от 1 до 100?');
 
-//   return two(15);
-// }
+  if (num === 'num') {
+    alert('До свидания');
+    return;
+  }
 
-// console.log(one());
+  if (isNum(num)){
+    const realNum = +num;
 
-// function funcMath(a) {
-//   return function(b) {
-//     console.log(a * b);
-//   };
-// }
+    if (realNum > randomNumber){
+      alert('Загаданное число меньше');
+      game();
+    } else if (realNum < randomNumber) {
+      alert('Загаданное число больше');
+      game();
+    } else {
+      alert('вы угадали');
+    }
+  } else {
+    alert('Введите число');
+    game();
+  }
+}
 
-// const mathPow = funcMath(10);
-// mathPow(5);
-// console.dir(mathPow);
+console.dir(game);
